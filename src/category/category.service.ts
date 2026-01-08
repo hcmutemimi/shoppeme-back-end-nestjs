@@ -1,0 +1,33 @@
+import { Injectable } from '@nestjs/common';
+import { CreateCategoryDto } from './dto/create-category.dto';
+import { UpdateCategoryDto } from './dto/update-category.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { Category } from './schemas/category.schemas';
+
+@Injectable()
+export class CategoryService {
+  constructor(
+    @InjectModel(Category.name) private readonly categoryModel: Model<Category>
+  ){}
+  create(createCategoryDto: CreateCategoryDto) {
+    const category = new this.categoryModel(createCategoryDto);
+    return category.save();
+  }
+
+  findAll() {
+    return `This action returns all category`;
+  }
+
+  findOne(id: number) {
+    return `This action returns a #${id} category`;
+  }
+
+  update(id: number, updateCategoryDto: UpdateCategoryDto) {
+    return `This action updates a #${id} category`;
+  }
+
+  remove(id: number) {
+    return `This action removes a #${id} category`;
+  }
+}

@@ -22,6 +22,12 @@ export class ProductsController {
     return this.productsService.search(body);
   }
 
+  @Post('/search-populate')
+  findWithPopulate(@Body() body: QueryDto) {
+    return this.productsService.searchWithPopulate(body)
+  }
+
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.productsService.findOne(+id);

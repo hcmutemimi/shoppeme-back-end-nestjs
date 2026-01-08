@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { OrderService } from './order.service';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
+import { QueryOrderDto } from './dto/query-order.dto';
 
 @Controller('order')
 export class OrderController {
@@ -16,6 +17,11 @@ export class OrderController {
   findAll() {
     return this.orderService.findAll();
   }
+  @Post('/search-populate')
+  findWithPopulate(@Body() body: QueryOrderDto) {
+    return this.orderService.searchWithPopulate(body)
+  }
+  
 
   @Get(':id')
   findOne(@Param('id') id: string) {

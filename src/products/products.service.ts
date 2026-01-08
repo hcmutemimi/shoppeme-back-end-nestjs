@@ -28,12 +28,17 @@ export class ProductsService {
     return this.productModel.find().exec();
   }
 
+  searchWithPopulate(query: QueryDto) {
+    return this.productModel.find().populate('category', 'name');
+
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} product`;
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+    return this.productModel.findByIdAndUpdate(id, updateProductDto);
   }
 
   remove(id: number) {

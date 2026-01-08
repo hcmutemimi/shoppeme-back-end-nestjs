@@ -9,6 +9,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ProductsModule } from '@/products/products.module';
 import { ERROR_MESSAGES, VARIABLES} from './common/consts';
 import { OrderModule } from './order/order.module';
+import { CategoryModule } from './category/category.module';
 
 @Module({
   imports: [
@@ -33,7 +34,8 @@ import { OrderModule } from './order/order.module';
     }),
     UsersModule,
     ProductsModule,
-    OrderModule
+    OrderModule,
+    CategoryModule
   ],
 
   controllers: [AppController],

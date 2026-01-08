@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { PromotionPeriodSchema } from "./promotion-period.schemas";
+import { Types } from "mongoose";
 
 @Schema({ timestamps: true })
 export class Product {
@@ -9,8 +10,6 @@ export class Product {
     originalPrice: number;
     @Prop({ required: true })
     salePrice: number;
-    @Prop({ required: true })
-    category: string;
     @Prop()
     subCategory: string;
     @Prop()
@@ -27,6 +26,8 @@ export class Product {
     promotionPeriod: PromotionPeriodSchema;
     @Prop()
     tags: string[];
+    @Prop({ type: Types.ObjectId, ref: 'Category'})
+    category: Types.ObjectId;
 
 }
 export const ProductSchema = SchemaFactory.createForClass(Product);
