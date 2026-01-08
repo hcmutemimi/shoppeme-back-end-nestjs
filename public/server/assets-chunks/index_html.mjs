@@ -1,0 +1,12 @@
+export default `<!DOCTYPE html><html lang="en" data-beasties-container><head>
+    <meta charset="utf-8">
+    <title>FrontEndAngular</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles-5INURTSO.css"></head>
+  <body><!--nghm-->
+    <app-root ng-version="21.0.6" ngh="1" ng-server-context="ssg"><router-outlet></router-outlet><app-home ngh="0"><p>home works!</p></app-home><!----></app-root>
+  <script src="main-GTEYJ7IZ.js" type="module"></script>
+
+<script id="ng-state" type="application/json">{"__nghData__":[{},{"c":{"0":[{"i":"c9527324","r":1}]}}]}</script></body></html>`;
